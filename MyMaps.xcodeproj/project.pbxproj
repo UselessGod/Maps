@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		46A846BC1536C0E7A1618607 /* Pods_MyMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDB1FDF371B3010A66F263F /* Pods_MyMaps.framework */; };
+		E70B795F273D341300B47E1F /* RealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70B795E273D341300B47E1F /* RealmObject.swift */; };
 		E7B9354B2732BB2B0007E231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9354A2732BB2B0007E231 /* AppDelegate.swift */; };
 		E7B9354D2732BB2B0007E231 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9354C2732BB2B0007E231 /* SceneDelegate.swift */; };
 		E7B9354F2732BB2B0007E231 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B9354E2732BB2B0007E231 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 		0DDB1FDF371B3010A66F263F /* Pods_MyMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2BC54A221A5C22DA5C7A604 /* Pods-MyMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMaps.debug.xcconfig"; path = "Target Support Files/Pods-MyMaps/Pods-MyMaps.debug.xcconfig"; sourceTree = "<group>"; };
 		E169A9067C3642F367E2355C /* Pods-MyMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMaps.release.xcconfig"; path = "Target Support Files/Pods-MyMaps/Pods-MyMaps.release.xcconfig"; sourceTree = "<group>"; };
+		E70B795E273D341300B47E1F /* RealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObject.swift; sourceTree = "<group>"; };
 		E7B935472732BB2B0007E231 /* MyMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B9354A2732BB2B0007E231 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7B9354C2732BB2B0007E231 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +50,6 @@
 				B2BC54A221A5C22DA5C7A604 /* Pods-MyMaps.debug.xcconfig */,
 				E169A9067C3642F367E2355C /* Pods-MyMaps.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -88,6 +89,7 @@
 				E7B935532732BB2C0007E231 /* Assets.xcassets */,
 				E7B935552732BB2C0007E231 /* LaunchScreen.storyboard */,
 				E7B935582732BB2C0007E231 /* Info.plist */,
+				E70B795E273D341300B47E1F /* RealmObject.swift */,
 			);
 			path = MyMaps;
 			sourceTree = "<group>";
@@ -104,6 +106,7 @@
 				E7B935442732BB2B0007E231 /* Frameworks */,
 				E7B935452732BB2B0007E231 /* Resources */,
 				D14A089B20734F9C8CF141D0 /* [CP] Copy Pods Resources */,
+				D36C0218D74FD8F0BC7227BA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -199,6 +202,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyMaps/Pods-MyMaps-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D36C0218D74FD8F0BC7227BA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyMaps/Pods-MyMaps-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyMaps/Pods-MyMaps-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyMaps/Pods-MyMaps-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -206,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E70B795F273D341300B47E1F /* RealmObject.swift in Sources */,
 				E7B9354F2732BB2B0007E231 /* ViewController.swift in Sources */,
 				E7B9354B2732BB2B0007E231 /* AppDelegate.swift in Sources */,
 				E7B9354D2732BB2B0007E231 /* SceneDelegate.swift in Sources */,

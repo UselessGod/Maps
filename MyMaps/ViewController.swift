@@ -8,6 +8,7 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
+import RealmSwift
 
 class ViewController: UIViewController {
     
@@ -16,6 +17,12 @@ class ViewController: UIViewController {
     private var locationManager: CLLocationManager?
     private let coordinate = CLLocationCoordinate2DMake(48.700001, 44.516660)
     private let geoDecoder = CLGeocoder()
+    
+    private var route: GMSPolyline?
+    private var routePath: GMSMutablePath?
+    
+    private var trackRoute = Track()
+//    private var trackRoutePath = Track()
     
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -41,7 +48,11 @@ class ViewController: UIViewController {
     
     private func configureCL() {
         locationManager = CLLocationManager()
-        locationManager?.requestWhenInUseAuthorization()
+        locationManager?.requestAlwaysAuthorization()
+        locationManager?.allowsBackgroundLocationUpdates = true
+        locationManager?.startMonitoringSignificantLocationChanges()
+        locationManager?.pausesLocationUpdatesAutomatically = false
+//        locationManager?.startMonitoringVisits()
         locationManager?.delegate = self
         
     }
@@ -59,17 +70,26 @@ class ViewController: UIViewController {
         marker = nil
     }
     
-    @IBAction func putMark(_ sender: Any){
-        marker == nil ? mark() : removeMarker()
-        
-    }
-    
     @IBAction func goToCenter(_ sender: Any) {
         mapView.animate(toLocation: coordinate)
     }
     
     @IBAction func updateLocation(_ sender: Any) {
+        route?.map = nil
+        route = GMSPolyline()
+        routePath = GMSMutablePath()
+        route?.map = mapView
+        
         locationManager?.startUpdatingLocation()
+        
+       
+        trackRoute.save(route?.map)
+        
+    }
+    
+    @IBAction func stopTracking(_ sender: Any){
+        locationManager?.stopUpdatingLocation()
+//        mapView.clear()
     }
     
     @IBAction func currentLocation(_ sender: Any) {
@@ -95,9 +115,12 @@ extension ViewController: GMSMapViewDelegate {
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
-        geoDecoder.reverseGeocodeLocation(location) { places, error in
-            print (places?.first)
-        }
+        
+        routePath?.add(location.coordinate)
+        route?.path = routePath
+        
+        let position = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: 15)
+        mapView.animate(to: position)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

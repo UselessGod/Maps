@@ -44,12 +44,12 @@
                             </barButtonItem>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
-                            <barButtonItem title="Mark" id="d17-7c-XsL">
+                            <barButtonItem title="Stop" id="d17-7c-XsL">
                                 <connections>
-                                    <action selector="putMark:" destination="BYZ-38-t0r" id="EGY-SU-KZt"/>
+                                    <action selector="stopTracking:" destination="BYZ-38-t0r" id="gLL-eg-jEO"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Update" id="ld9-DM-Ql6">
+                            <barButtonItem title="Start" id="ld9-DM-Ql6">
                                 <connections>
                                     <action selector="updateLocation:" destination="BYZ-38-t0r" id="2IQ-Jw-StT"/>
                                 </connections>
