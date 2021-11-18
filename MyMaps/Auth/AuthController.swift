@@ -28,6 +28,9 @@ class AuthController: UIViewController {
               let password = passwordView.text,
               login == Constants.login && password == Constants.password else { return }
         
+        loginView.autocorrectionType = .no
+        passwordView.autocorrectionType = .no
+        
         router.toMain()
         UserDefaults.standard.set(true, forKey: "isLogin")
     }

@@ -7,5 +7,6 @@ target 'MyMaps' do
 
   pod 'GoogleMaps'
   pod 'RealmSwift'
+  pod 'Alamofire'
 
 end

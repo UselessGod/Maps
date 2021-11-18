@@ -21,6 +21,8 @@
 		E7B935522732BB2B0007E231 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7B935502732BB2B0007E231 /* Main.storyboard */; };
 		E7B935542732BB2C0007E231 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7B935532732BB2C0007E231 /* Assets.xcassets */; };
 		E7B935572732BB2C0007E231 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7B935552732BB2C0007E231 /* LaunchScreen.storyboard */; };
+		E7BB838927455A980076671B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BB838827455A980076671B /* NetworkManager.swift */; };
+		E7BB838E274569B80076671B /* HTTPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BB838D274569B80076671B /* HTTPManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		E7B935532732BB2C0007E231 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7B935562732BB2C0007E231 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7B935582732BB2C0007E231 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7BB838827455A980076671B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E7BB838D274569B80076671B /* HTTPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +137,10 @@
 		E7B935492732BB2B0007E231 /* MyMaps */ = {
 			isa = PBXGroup;
 			children = (
+				E7BB838C2745698B0076671B /* NetworkLayer */,
 				E76EA8FD274145080015F6EC /* BaseRouter.swift */,
 				E76EA8FF27414BDA0015F6EC /* Helper.swift */,
+				E7BB838827455A980076671B /* NetworkManager.swift */,
 				E76EA8EF2741293A0015F6EC /* Auth */,
 				E76EA8EE274128BB0015F6EC /* Main */,
 				E76EA8ED274128940015F6EC /* Resources */,
@@ -142,6 +148,14 @@
 				E70B795E273D341300B47E1F /* RealmObject.swift */,
 			);
 			path = MyMaps;
+			sourceTree = "<group>";
+		};
+		E7BB838C2745698B0076671B /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				E7BB838D274569B80076671B /* HTTPManager.swift */,
+			);
+			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,9 +293,11 @@
 			files = (
 				E76EA8FE274145080015F6EC /* BaseRouter.swift in Sources */,
 				E76EA8F527412E540015F6EC /* ResetPassController.swift in Sources */,
+				E7BB838927455A980076671B /* NetworkManager.swift in Sources */,
 				E76EA8F7274131910015F6EC /* MainController.swift in Sources */,
 				E70B795F273D341300B47E1F /* RealmObject.swift in Sources */,
 				E7B9354F2732BB2B0007E231 /* ViewController.swift in Sources */,
+				E7BB838E274569B80076671B /* HTTPManager.swift in Sources */,
 				E76EA90027414BDA0015F6EC /* Helper.swift in Sources */,
 				E76EA8F32741297F0015F6EC /* AuthController.swift in Sources */,
 				E7B9354B2732BB2B0007E231 /* AppDelegate.swift in Sources */,
