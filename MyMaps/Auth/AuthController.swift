@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class AuthController: UIViewController {
     
@@ -17,6 +19,13 @@ class AuthController: UIViewController {
     @IBOutlet weak var router: LoginRouter!
     @IBOutlet weak var loginView: UITextField!
     @IBOutlet weak var passwordView: UITextField!
+    
+    @IBOutlet weak var loginButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureLoginBinding()
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -37,6 +46,17 @@ class AuthController: UIViewController {
     
     @IBAction func recovery (_ sender: UIButton) {
         router.onReset()
+    }
+    
+    private func configureLoginBinding() {
+        Observable
+            .combineLatest(loginView.rx.text, passwordView.rx.text)
+            .map { login, pass in
+                return !(login ?? "").isEmpty && (pass ?? "").count >= 6
+            }
+            .bind { [weak loginButton] inputFilled in
+                loginButton?.isEnabled = inputFilled
+            }
     }
     
 }
