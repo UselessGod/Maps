@@ -8,21 +8,17 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
-import RealmSwift
+//import RealmSwift
 
 class ViewController: UIViewController {
     
     private var marker: GMSMarker?
     private var manualMarker: GMSMarker?
-    private var locationManager: CLLocationManager?
     private let coordinate = CLLocationCoordinate2DMake(48.700001, 44.516660)
     private let geoDecoder = CLGeocoder()
     
     private var route: GMSPolyline?
     private var routePath: GMSMutablePath?
-    
-    private var trackRoute = Track()
-//    private var trackRoutePath = Track()
     
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -30,7 +26,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         mapView.delegate = self
         configureMap()
-        configureCL()
+        
+        LocationManager.shared.startUpdating()
+        
+        LocationManager.shared.location
+            .subscribe(onNext: {
+                self.handleNewLocation($0)
+                
+            })
         
         let fuji = "Fuji"
         geoDecoder.geocodeAddressString(fuji) { places, error in
@@ -39,6 +42,7 @@ class ViewController: UIViewController {
         
 //        configureMapStyle()
     }
+
     
     private func configureMap() {
         let camera = GMSCameraPosition(target: coordinate, zoom: 15)
@@ -46,15 +50,13 @@ class ViewController: UIViewController {
 //        mapView.isTrafficEnabled = true
     }
     
-    private func configureCL() {
-        locationManager = CLLocationManager()
-        locationManager?.requestAlwaysAuthorization()
-        locationManager?.allowsBackgroundLocationUpdates = true
-        locationManager?.startMonitoringSignificantLocationChanges()
-        locationManager?.pausesLocationUpdatesAutomatically = false
-//        locationManager?.startMonitoringVisits()
-        locationManager?.delegate = self
+    private func handleNewLocation(_ new: CLLocation?) {
+        guard let location = new else { return }
+        routePath?.add(location.coordinate)
+        route?.path = routePath
         
+        let position = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: 15)
+        mapView.animate(to: position)
     }
     
     private func mark() {
@@ -80,20 +82,16 @@ class ViewController: UIViewController {
         routePath = GMSMutablePath()
         route?.map = mapView
         
-        locationManager?.startUpdatingLocation()
-        
-       
-        trackRoute.save(route?.map)
-        
+//        locationManager?.startUpdatingLocation()
     }
     
     @IBAction func stopTracking(_ sender: Any){
-        locationManager?.stopUpdatingLocation()
+//        locationManager?.stopUpdatingLocation()
 //        mapView.clear()
     }
     
     @IBAction func currentLocation(_ sender: Any) {
-        locationManager?.requestLocation()
+//        locationManager?.requestLocation()
     }
 }
 
@@ -109,22 +107,6 @@ extension ViewController: GMSMapViewDelegate {
             mapView.animate(toLocation: coordinate)
             manualMarker = self.marker
         }
-    }
-}
-
-extension ViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
-        
-        routePath?.add(location.coordinate)
-        route?.path = routePath
-        
-        let position = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: 15)
-        mapView.animate(to: position)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
     }
 }
 
