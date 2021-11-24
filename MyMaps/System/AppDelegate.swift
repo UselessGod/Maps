@@ -16,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         GMSServices.provideAPIKey("AIzaSyCijzKtgFutUMsyrERvO0QEYjcGz9CRzKg")
         
+//        NotificationService.shared.request()
+        
+        NotificationService.shared.checkForAuth {
+            switch $0 {
+            case .authorized:
+                NotificationService.shared.sendNotificatioRequest()
+            default: break
+            }
+        }
+        
         return true
     }
 
