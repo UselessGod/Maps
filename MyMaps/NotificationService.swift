@@ -47,8 +47,8 @@ class NotificationService {
         let content = UNMutableNotificationContent()
         
         content.title = "Приготовьтесь"
-        content.subtitle = "Через 50 км"
-        content.body = "Поверините налево"
+        content.subtitle = "Через 50 км, поверните налево"
+        content.body = "Вернитесь в приложение для построения маршрута"
         
         let attachment = try! UNNotificationAttachment(identifier: "image", url: Bundle.main.url(forResource: "left", withExtension: "png")!, options: nil)
         content.attachments = [attachment]
@@ -59,7 +59,7 @@ class NotificationService {
 
     
     func makeIntervalNotificatioTrigger() -> UNNotificationTrigger {
-        UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        UNTimeIntervalNotificationTrigger(timeInterval: 1800, repeats: false)
     }
     
 }
