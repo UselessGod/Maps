@@ -8,7 +8,7 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
-import RealmSwift
+//import RealmSwift
 
 class ViewController: UIViewController {
     
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     private var route: GMSPolyline?
     private var routePath: GMSMutablePath?
     
-    private var trackRoute = Track()
+//    private var trackRoute = Track()
 //    private var trackRoutePath = Track()
     
     @IBOutlet weak var mapView: GMSMapView!
@@ -81,10 +81,6 @@ class ViewController: UIViewController {
         route?.map = mapView
         
         locationManager?.startUpdatingLocation()
-        
-       
-        trackRoute.save(route?.map)
-        
     }
     
     @IBAction func stopTracking(_ sender: Any){
