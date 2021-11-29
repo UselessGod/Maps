@@ -1,20 +1,48 @@
 PODS:
+  - Alamofire (5.4.1)
   - GoogleMaps (5.2.0):
     - GoogleMaps/Maps (= 5.2.0)
   - GoogleMaps/Base (5.2.0)
   - GoogleMaps/Maps (5.2.0):
     - GoogleMaps/Base
+  - Realm (10.7.2):
+    - Realm/Headers (= 10.7.2)
+  - Realm/Headers (10.7.2)
+  - RealmSwift (10.7.2):
+    - Realm (= 10.7.2)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
 
 DEPENDENCIES:
+  - Alamofire
   - GoogleMaps
+  - RealmSwift
+  - RxCocoa (= 6.2.0)
+  - RxSwift (= 6.2.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - GoogleMaps
+    - Realm
+    - RealmSwift
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 SPEC CHECKSUMS:
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   GoogleMaps: 025272d5876d3b32604e5c080dc25eaf68764693
+  Realm: e523da9ade306c5ae87e85dc09fdef148d3e1cc1
+  RealmSwift: 4f6758c3adbdcc87f7b7777107226532a077f61c
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
 
-PODFILE CHECKSUM: 46ed1fc38e5778484033c855c6365d46e65d1d58
+PODFILE CHECKSUM: 61faec10440a8ccc7cb518fcf19ac31ae870d2de
 
 COCOAPODS: 1.10.1
