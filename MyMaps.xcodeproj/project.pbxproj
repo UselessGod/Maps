@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		46A846BC1536C0E7A1618607 /* Pods_MyMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDB1FDF371B3010A66F263F /* Pods_MyMaps.framework */; };
 		E70B795F273D341300B47E1F /* RealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70B795E273D341300B47E1F /* RealmObject.swift */; };
+		E71441F42755395F00936C01 /* PhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71441F32755395F00936C01 /* PhotoController.swift */; };
+		E71441F627553C2D00936C01 /* sun.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E71441F527553C2D00936C01 /* sun.jpg */; };
 		E76EA8F12741295E0015F6EC /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76EA8F02741295E0015F6EC /* Auth.storyboard */; };
 		E76EA8F32741297F0015F6EC /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76EA8F22741297F0015F6EC /* AuthController.swift */; };
 		E76EA8F527412E540015F6EC /* ResetPassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76EA8F427412E540015F6EC /* ResetPassController.swift */; };
@@ -33,6 +35,8 @@
 		B2BC54A221A5C22DA5C7A604 /* Pods-MyMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMaps.debug.xcconfig"; path = "Target Support Files/Pods-MyMaps/Pods-MyMaps.debug.xcconfig"; sourceTree = "<group>"; };
 		E169A9067C3642F367E2355C /* Pods-MyMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMaps.release.xcconfig"; path = "Target Support Files/Pods-MyMaps/Pods-MyMaps.release.xcconfig"; sourceTree = "<group>"; };
 		E70B795E273D341300B47E1F /* RealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmObject.swift; sourceTree = "<group>"; };
+		E71441F32755395F00936C01 /* PhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoController.swift; sourceTree = "<group>"; };
+		E71441F527553C2D00936C01 /* sun.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sun.jpg; path = ../sun.jpg; sourceTree = "<group>"; };
 		E76EA8F02741295E0015F6EC /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		E76EA8F22741297F0015F6EC /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		E76EA8F427412E540015F6EC /* ResetPassController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 				E7B935582732BB2C0007E231 /* Info.plist */,
 				E7B935532732BB2C0007E231 /* Assets.xcassets */,
 				E7B935552732BB2C0007E231 /* LaunchScreen.storyboard */,
+				E71441F527553C2D00936C01 /* sun.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 				E7B9354E2732BB2B0007E231 /* ViewController.swift */,
 				E7B935502732BB2B0007E231 /* Main.storyboard */,
 				E76EA8F6274131910015F6EC /* MainController.swift */,
+				E71441F32755395F00936C01 /* PhotoController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -227,6 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E71441F627553C2D00936C01 /* sun.jpg in Resources */,
 				E76EA8F12741295E0015F6EC /* Auth.storyboard in Resources */,
 				E79AD9D6274ECB6E0027F115 /* left.png in Resources */,
 				E7B935572732BB2C0007E231 /* LaunchScreen.storyboard in Resources */,
@@ -311,6 +318,7 @@
 				E7BB838E274569B80076671B /* HTTPManager.swift in Sources */,
 				E76EA90027414BDA0015F6EC /* Helper.swift in Sources */,
 				E7EE09AD274A43700023E8DE /* LocationManager.swift in Sources */,
+				E71441F42755395F00936C01 /* PhotoController.swift in Sources */,
 				E76EA8F32741297F0015F6EC /* AuthController.swift in Sources */,
 				E7B9354B2732BB2B0007E231 /* AppDelegate.swift in Sources */,
 				E7B9354D2732BB2B0007E231 /* SceneDelegate.swift in Sources */,

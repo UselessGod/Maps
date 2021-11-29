@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HVV-jm-20v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lbS-d8-QiK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,17 +18,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kO7-EF-8yJ">
-                                <rect key="frame" x="20" y="244" width="374" height="30"/>
+                                <rect key="frame" x="20" y="288" width="374" height="30"/>
                                 <state key="normal" title="Show Map"/>
                                 <connections>
                                     <action selector="showMap:" destination="HVV-jm-20v" eventType="touchUpInside" id="77V-oD-Thq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40n-NE-9jE">
-                                <rect key="frame" x="20" y="374" width="374" height="30"/>
+                                <rect key="frame" x="20" y="418" width="374" height="30"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logout:" destination="HVV-jm-20v" eventType="touchUpInside" id="JUg-Mb-x1b"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13m-fn-c2G">
+                                <rect key="frame" x="20" y="498" width="374" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Take photo"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="HVV-jm-20v" eventType="touchUpInside" id="grV-tZ-SyY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -37,13 +46,18 @@
                             <constraint firstItem="kO7-EF-8yJ" firstAttribute="top" secondItem="Dwk-b6-ijF" secondAttribute="top" constant="200" id="4z2-g6-Lnp"/>
                             <constraint firstItem="kO7-EF-8yJ" firstAttribute="leading" secondItem="Dwk-b6-ijF" secondAttribute="leading" constant="20" id="CIn-wx-ydL"/>
                             <constraint firstItem="40n-NE-9jE" firstAttribute="trailing" secondItem="kO7-EF-8yJ" secondAttribute="trailing" id="Ciq-eQ-9Gv"/>
+                            <constraint firstItem="13m-fn-c2G" firstAttribute="leading" secondItem="40n-NE-9jE" secondAttribute="leading" id="X2U-do-RCX"/>
                             <constraint firstItem="40n-NE-9jE" firstAttribute="top" secondItem="kO7-EF-8yJ" secondAttribute="bottom" constant="100" id="aqx-eB-dl4"/>
                             <constraint firstItem="40n-NE-9jE" firstAttribute="leading" secondItem="kO7-EF-8yJ" secondAttribute="leading" id="gll-YU-Oec"/>
+                            <constraint firstItem="13m-fn-c2G" firstAttribute="top" secondItem="40n-NE-9jE" secondAttribute="bottom" constant="50" id="s59-h5-Wg7"/>
                             <constraint firstItem="Dwk-b6-ijF" firstAttribute="trailing" secondItem="kO7-EF-8yJ" secondAttribute="trailing" constant="20" id="s5V-VE-FOs"/>
+                            <constraint firstItem="13m-fn-c2G" firstAttribute="trailing" secondItem="40n-NE-9jE" secondAttribute="trailing" id="zL1-TZ-AVc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="2nD-Um-WfU"/>
                     <connections>
                         <outlet property="router" destination="HZ6-7l-y5z" id="Uf8-d4-nzY"/>
+                        <segue destination="Irb-pl-rfU" kind="show" identifier="photo" id="3gs-v3-3b6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAS-V2-DOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -53,7 +67,37 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="-1272" y="35"/>
+            <point key="canvasLocation" x="-362.31884057971018" y="34.821428571428569"/>
+        </scene>
+        <!--Photo Controller-->
+        <scene sceneID="g0t-EL-aTB">
+            <objects>
+                <viewController id="Irb-pl-rfU" customClass="PhotoController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ijO-7E-NHr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Nx-h2-rdq">
+                                <rect key="frame" x="82" y="372" width="250" height="206"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rcU-CZ-P6n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Nx-h2-rdq" firstAttribute="top" secondItem="rcU-CZ-P6n" secondAttribute="top" constant="284" id="5qO-JX-pKZ"/>
+                            <constraint firstItem="rcU-CZ-P6n" firstAttribute="bottom" secondItem="9Nx-h2-rdq" secondAttribute="bottom" constant="284" id="BKR-ub-sE5"/>
+                            <constraint firstItem="9Nx-h2-rdq" firstAttribute="leading" secondItem="rcU-CZ-P6n" secondAttribute="leading" constant="82" id="JQ8-nf-dSk"/>
+                            <constraint firstItem="rcU-CZ-P6n" firstAttribute="trailing" secondItem="9Nx-h2-rdq" secondAttribute="trailing" constant="82" id="Pgb-d0-tpw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8rp-M3-nhb"/>
+                    <connections>
+                        <outlet property="imgVIew" destination="9Nx-h2-rdq" id="ABu-cd-9sr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mbo-K4-Ezg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="317" y="35"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1yR-hD-hVt">
@@ -129,6 +173,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OhP-Ao-8Yb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1012" y="755"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sL0-xK-3CF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lbS-d8-QiK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hka-SZ-WSp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HVV-jm-20v" kind="relationship" relationship="rootViewController" id="qbb-6Y-4rv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yhw-28-bFS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1272.4637681159422" y="34.821428571428569"/>
         </scene>
     </scenes>
     <resources>

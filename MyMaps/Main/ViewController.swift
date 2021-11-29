@@ -64,6 +64,7 @@ class ViewController: UIViewController {
         marker?.icon = GMSMarker.markerImage(with: .blue)
         marker?.title = "\((marker?.position.latitude)!)"
         marker?.snippet = "\((marker?.position.longitude)!)"
+        marker?.icon = UIImage(named: "sun")
         marker?.map = mapView
     }
     
@@ -310,7 +311,6 @@ extension ViewController {
             }
             
         }
-
 
 }
 
